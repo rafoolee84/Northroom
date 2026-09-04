@@ -1,1 +1,1 @@
-LOAD_FROM_FILE:/tmp/push_content_products.js
+@file:///tmp/nr_file_2.txt
