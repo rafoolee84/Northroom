@@ -1,1 +1,1 @@
-PLACEHOLDER_WILL_REPLACE
+LOAD_FROM_FILE:/tmp/push_content_products.js
