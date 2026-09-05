@@ -112,11 +112,28 @@
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 22px 22px 20px;
+      padding: 0;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 140px;
       transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .cat-card .pic {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(145deg, #efe7da, #e2d7c7);
+      overflow: hidden;
+    }
+    .cat-card .pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cat-card .copy {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
     .cat-card:hover {
       border-color: #d2c6b4;
@@ -128,7 +145,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .cat-card h3 {
       margin: 0 0 8px;
@@ -309,7 +326,7 @@
 
   <div class="section-head" id="shop">
     <h2>Shop by category</h2>
-    <span>100 pieces</span>
+    <span id="piece-count"></span>
   </div>
   <section class="cat-grid" id="categories"></section>
 
@@ -337,11 +354,12 @@
     const API = "https://smart-store-service.onrender.com/approve_product";
     const WAKE = "https://smart-store-service.onrender.com/";
 
+    const esc = (s) => String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/"/g, "&quot;");
+
     function card(p) {
-      const esc = (s) => String(s)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/"/g, "&quot;");
       const thumb = p.image
         ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" /><span class="cat">${esc(p.cat)}</span>`
         : `<span class="cat">${esc(p.cat)}</span>`;
@@ -395,17 +413,25 @@
       return products.filter((p) => p.cat === id).length;
     }
 
+    const countEl = document.getElementById("piece-count");
+    if (countEl) countEl.textContent = products.length + " pieces";
+
     document.getElementById("categories").innerHTML = cats.map((c) => {
       const n = countFor(c.id);
+      const pic = c.image
+        ? `<div class="pic"><img src="${esc(c.image)}" alt="${esc(c.id)}" loading="lazy" /></div>`
+        : `<div class="pic"></div>`;
       return `<a class="cat-card" href="category.html?cat=${encodeURIComponent(c.id)}">
-        <span class="count">${n} pieces</span>
-        <h3>${c.id}</h3>
-        <p>${c.line}</p>
-        <span class="go">Browse →</span>
+        ${pic}
+        <div class="copy">
+          <span class="count">${n} pieces</span>
+          <h3>${esc(c.id)}</h3>
+          <p>${esc(c.line)}</p>
+          <span class="go">Browse →</span>
+        </div>
       </a>`;
     }).join("");
 
-    // Up to 6 featured picks across categories
     const featuredTitles = [
       "Waffle Cotton Throw",
       "Matte Ceramic Lamp with Linen Shade",
