@@ -1,1 +1,1 @@
-LOAD_FROM_FILE
+window.NORTHROOM_IMAGES={"RESTORE":"pending"};
