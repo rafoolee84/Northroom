@@ -1,1 +1,1 @@
-PLACEHOLDER2
+LOAD_FROM_FILE:/tmp/push_content_product_copy.js
