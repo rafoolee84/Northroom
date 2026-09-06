@@ -1,0 +1,1 @@
+(function(){var m=window.NORTHROOM_IMAGES||{};m["Northroom Ceramic Mug 11oz"]="images/mug.jpg";m["Northroom Faux Suede Pillowcase"]="images/pillow.jpg";m["Northroom Matte Poster 7x5"]="images/poster.jpg";window.NORTHROOM_IMAGES=m;})();
