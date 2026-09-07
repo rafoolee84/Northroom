@@ -1,1 +1,1 @@
-file:///workspace/nr-mark-deploy/product-images-FINAL.js
+@file:///workspace/nr-mark-deploy/product-images-FINAL.js
