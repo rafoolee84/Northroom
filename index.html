@@ -387,6 +387,7 @@
 
   <script src="product-images.js"></script>
   <script src="products.js"></script>
+  <script src="mark-brand-patch.js"></script>
   <script src="catalog-extra.js"></script>
   <script src="prices.js"></script>
   <script>
@@ -448,7 +449,10 @@
       const img = (window.NORTHROOM_IMAGES || {})[p.title];
       return img ? Object.assign({}, p, { image: img }) : p;
     });
-    const brand = window.NORTHROOM_BRAND || [];
+    const brand = (window.NORTHROOM_BRAND || []).map((p) => {
+      const img = (window.NORTHROOM_IMAGES || {})[p.title];
+      return img ? Object.assign({}, p, { image: img }) : p;
+    });
     const cats = window.NORTHROOM_CATEGORIES || [];
 
     function countFor(id) {
