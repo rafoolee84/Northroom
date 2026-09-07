@@ -407,7 +407,7 @@
           const btn = e.target.closest("button[data-src]");
           if (!btn) return;
           show(btn.dataset.src);
-          thumbs.querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", "true"));
+          thumbs.querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", "false"));
           btn.setAttribute("aria-current", "true");
         });
       } else {
