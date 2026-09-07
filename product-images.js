@@ -1,1 +1,1 @@
-@file:///workspace/nr-mark-deploy/product-images-FINAL.js
+PLACEHOLDER_REPLACE_WITH_FILE
