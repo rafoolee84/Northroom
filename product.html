@@ -286,6 +286,7 @@
   </footer>
 
   <script src="product-images.js"></script>
+  <script src="product-images-fixes.js"></script>
   <script src="product-gallery.js"></script>
   <script src="products.js"></script>
   <script src="catalog-extra.js"></script>
@@ -406,7 +407,7 @@
           const btn = e.target.closest("button[data-src]");
           if (!btn) return;
           show(btn.dataset.src);
-          thumbs.querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", "false"));
+          thumbs.querySelectorAll("button").forEach((b) => b.setAttribute("aria-current", "true"));
           btn.setAttribute("aria-current", "true");
         });
       } else {
