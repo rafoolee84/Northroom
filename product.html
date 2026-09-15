@@ -261,6 +261,7 @@
       <h1 id="title"></h1>
       <p class="brand-line" id="brand-line"></p>
       <p class="price" id="price"></p>
+      <p class="color-line" id="color-line" style="margin:0 0 12px;font-size:15px;color:#5a534a;"></p>
       <p class="blurb" id="blurb"></p>
       <ul class="bullets" id="bullets" hidden></ul>
       <div class="variants" id="variants" hidden>
@@ -363,6 +364,17 @@
       document.getElementById("title").textContent = product.title;
       document.getElementById("brand-line").textContent = brandName;
       document.getElementById("price").textContent = "$" + Number(product.price).toFixed(2);
+      (function(){
+        const el = document.getElementById("color-line");
+        if (!el) return;
+        const t = String(product.title||"");
+        let color = "";
+        for (const sep of [" — ", " – ", " - "]) {
+          if (t.includes(sep)) { color = t.split(sep).slice(1).join(sep).trim(); break; }
+        }
+        if (color) { el.hidden = false; el.textContent = "Color: " + color; }
+        else { el.hidden = true; el.textContent = ""; }
+      })();
       document.getElementById("blurb").textContent = blurb;
 
       const bulletsEl = document.getElementById("bullets");
