@@ -423,7 +423,7 @@
           const res = await fetch(API, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ title: product.title })
+            body: JSON.stringify({ title: product.title, price: Number(product.price), quantity: 1, sku: product.id || product.sku || product.title })
           });
           const data = await res.json();
           if (data.checkout_url && data.checkout_url.includes("checkout.stripe.com")) {
