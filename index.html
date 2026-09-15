@@ -419,9 +419,20 @@
 
     fetch(WAKE, { mode: "cors" }).catch(() => {});
 
+    function resetAllBuyUi() {
+      document.querySelectorAll("button.buy").forEach((b) => { b.disabled = false; });
+      document.querySelectorAll(".note").forEach((n) => { n.hidden = true; n.textContent = ""; });
+    }
+    resetAllBuyUi();
+    window.addEventListener("pageshow", resetAllBuyUi);
+    window.addEventListener("focus", resetAllBuyUi);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") resetAllBuyUi();
+    });
+
     document.body.addEventListener("click", async (e) => {
       const btn = e.target.closest("button.buy");
-      if (!btn) return;
+      if (!btn || btn.disabled) return;
       const note = btn.parentElement.querySelector(".note");
       btn.disabled = true;
       note.hidden = false;
@@ -435,6 +446,7 @@
         const data = await res.json();
         if (data.checkout_url && data.checkout_url.includes("checkout.stripe.com")) {
           window.location = data.checkout_url;
+          setTimeout(resetAllBuyUi, 2000);
           return;
         }
         note.textContent = "Checkout isn’t ready for this item yet.";
