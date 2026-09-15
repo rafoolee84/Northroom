@@ -347,7 +347,7 @@
           <h3><a href="${href}">${esc(p.title)}</a></h3>
           <p class="price">$${Number(p.price).toFixed(2)}</p>
           <p>${esc(p.blurb)}</p>
-          <button class="buy" data-title="${esc(p.title)}">Buy</button>
+          <button class="buy" data-title="${esc(p.title)}" data-price="${Number(p.price)}" data-sku="${esc(p.id || p.sku || p.title)}">Buy</button>
           <p class="ship-hint">Usually 3–8 days (US stock) or 1–3 weeks (China).</p>
           <p class="note" hidden></p>
         </div>
@@ -367,7 +367,7 @@
         const res = await fetch(API, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ title: btn.dataset.title })
+          body: JSON.stringify({ title: btn.dataset.title, price: Number(btn.dataset.price), quantity: 1, sku: btn.dataset.sku || btn.dataset.title })
         });
         const data = await res.json();
         if (data.checkout_url && data.checkout_url.includes("checkout.stripe.com")) {
