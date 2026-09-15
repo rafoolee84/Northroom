@@ -414,6 +414,16 @@
 
       const buy = document.getElementById("buy");
       buy.dataset.title = product.title;
+      function resetBuyUi() {
+        buy.disabled = false;
+        const note = document.getElementById("note");
+        if (note) { note.hidden = true; note.textContent = ""; }
+      }
+      // Browser Back from Stripe restores this page from cache with "Opening checkout…" stuck — clear it.
+      window.addEventListener("pageshow", (e) => { resetBuyUi(); });
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") resetBuyUi();
+      });
       buy.addEventListener("click", async () => {
         const note = document.getElementById("note");
         buy.disabled = true;
@@ -428,6 +438,8 @@
           const data = await res.json();
           if (data.checkout_url && data.checkout_url.includes("checkout.stripe.com")) {
             window.location = data.checkout_url;
+            // If navigation is cancelled / user returns via Back, reset on pageshow.
+            setTimeout(resetBuyUi, 2500);
             return;
           }
           note.textContent = "Checkout isn’t ready for this item yet.";
