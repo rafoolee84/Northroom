@@ -368,12 +368,21 @@
         const el = document.getElementById("color-line");
         if (!el) return;
         const t = String(product.title||"");
-        let color = "";
+        let tail = "";
         for (const sep of [" — ", " – ", " - "]) {
-          if (t.includes(sep)) { color = t.split(sep).slice(1).join(sep).trim(); break; }
+          if (t.includes(sep)) { tail = t.split(sep).slice(1).join(sep).trim(); break; }
         }
-        if (color) { el.hidden = false; el.textContent = "Color: " + color; }
-        else { el.hidden = true; el.textContent = ""; }
+        const colorRe = /\b(sand|oat|cream|ivory|bone|white|black|charcoal|sage|flax|natural|linen|matte|frosted|teal|green|amber|oak|walnut|stone|biscuit|bisque|mushroom|taupe|gray|grey|navy|blush|terracotta|rust|olive|espresso|canvas|cork)\b/i;
+        const notColor = /\b(cups?|plates?|pair|set|pack|trio|pieces?|placemats?|trivets?|coasters?|bottle|shelf|tier|expandable)\b/i;
+        if (tail && colorRe.test(tail) && !notColor.test(tail)) {
+          el.hidden = false; el.textContent = "Color: " + tail;
+        } else if (tail && colorRe.test(tail)) {
+          // mixed tail like "12 piece sand (...)" — extract color words only
+          const m = tail.match(colorRe);
+          el.hidden = false; el.textContent = "Color: " + (m ? m[0] : tail);
+        } else {
+          el.hidden = true; el.textContent = "";
+        }
       })();
       document.getElementById("blurb").textContent = blurb;
 
