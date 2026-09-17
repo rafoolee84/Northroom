@@ -325,6 +325,19 @@
       color: var(--muted);
     }
 
+    footer a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    footer a:hover { color: var(--ink); }
+    footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin: 12px 0;
+    }
+
   </style>
 </head>
 <body>
@@ -380,7 +393,10 @@
 
   <footer>
     <p>Northroom · Secure checkout · Ships in the US</p>
-    <p>Questions? albazirafal859@gmail.com</p>
+    <p class="footer-links">
+      <a href="returns.html">Returns &amp; Refunds</a>
+    </p>
+    <p>Questions? <a href="mailto:albazirafal859@gmail.com">albazirafal859@gmail.com</a></p>
   </footer>
 
   <script src="product-images.js"></script>
