@@ -343,6 +343,29 @@
       margin: 12px 0;
     }
 
+  
+    .footer-trust {
+      margin: 14px 0 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+    }
+    .footer-trust a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-trust a:hover {
+      color: var(--ink);
+      border-bottom-color: var(--line);
+    }
+    .footer-trust .sep { opacity: 0.45; }
+
   </style>
 </head>
 <body>
@@ -374,15 +397,8 @@
     <h1>Things for a quieter home.</h1>
     <p class="lede">Browse by room — textiles, lighting, kitchen, decor, bath, storage, and outdoor. Small pages, easier looking.</p>
   </section>
-  <div class="trust-row" aria-label="Store assurances">
-    <a href="privacy.html">Secure checkout</a>
-    <span class="sep" aria-hidden="true">·</span>
-    <a href="shipping.html">Ships US</a>
-    <span class="sep" aria-hidden="true">·</span>
-    <a href="returns.html">30-day returns</a>
-  </div>
 
-  <div class="section-head" id="shop">
+<div class="section-head" id="shop">
     <h2>Shop by category</h2>
     <span id="piece-count"></span>
   </div>
@@ -432,7 +448,13 @@
       </div>
     </div>
         <p class="footer-biz">Northroom · <a href="mailto:albazirafal859@gmail.com">albazirafal859@gmail.com</a></p>
-    <p>Secure checkout via Stripe · Ships in the US</p>
+    <p class="footer-trust">
+      <a href="privacy.html">Secure checkout</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="shipping.html">Ships in the US</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="returns.html">30-day returns</a>
+    </p>
   </footer>
 
   <script src="product-images.js"></script>
