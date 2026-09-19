@@ -222,6 +222,22 @@
     .missing[hidden] { display: none; }
     .missing h1 { margin: 0 0 10px; font-size: 28px; font-weight: 500; }
     .missing p { color: var(--muted); }
+    .promo-notice {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-align: center;
+      padding: 10px 6vw;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .promo-notice strong {
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 28px 6vw 48px;
@@ -287,6 +303,7 @@
       <a href="index.html#mark">Mark</a>
     </nav>
   </header>
+  <div class="promo-notice" role="status">First order: use code <strong>NORTH15</strong> for 15% off</div>
 
   <a class="back" id="back-link" href="index.html#shop">← Back</a>
 
