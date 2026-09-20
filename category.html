@@ -474,11 +474,15 @@
       const img = (window.NORTHROOM_IMAGES || {})[p.title];
       return img ? Object.assign({}, p, { image: img }) : p;
     });
-    const known = (window.NORTHROOM_CATEGORIES || []).map((c) => c.id);
+    let known = (window.NORTHROOM_CATEGORIES || []).map((c) => c.id);
+    if (!known.length) {
+      known = Array.from(new Set(products.map((p) => p.cat).filter(Boolean)));
+    }
     const params = new URLSearchParams(window.location.search);
     const cat = params.get("cat");
 
-    if (!cat || !known.includes(cat)) {
+    // Redirect only if cat missing or not present in any product/category
+    if (!cat || (!known.includes(cat) && !products.some((p) => p.cat === cat))) {
       window.location.replace("index.html");
     } else {
       const items = products.filter((p) => p.cat === cat);

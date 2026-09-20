@@ -21,4 +21,28 @@ window.NORTHROOM_BRAND_PRICE_OVERRIDES={};
   (window.NORTHROOM_BRAND||[]).forEach(function(p){
     if(bo[p.title]!=null) p.price=bo[p.title];
   });
+
+  // Lock: rebuild categories from products if missing (survives products.js rewrites)
+  if (!window.NORTHROOM_CATEGORIES || !window.NORTHROOM_CATEGORIES.length) {
+    var defaultLines = {
+      Textile: "Soft layers for bed, table, and couch.",
+      Lighting: "Quiet glow for desks, corners, and walls.",
+      Decor: "Calm objects for shelves and surfaces.",
+      Storage: "Baskets, shelves, and quiet order.",
+      Outdoor: "Entry and patio pieces with a soft edge."
+    };
+    var seen = {};
+    var built = [];
+    (window.NORTHROOM_PRODUCTS || []).forEach(function (p) {
+      var id = p && p.cat;
+      if (!id || seen[id]) return;
+      seen[id] = 1;
+      built.push({ id: id, line: defaultLines[id] || ("Quiet pieces for " + id.toLowerCase() + ".") });
+    });
+    window.NORTHROOM_CATEGORIES = built;
+  }
+  var imgs2 = window.NORTHROOM_CATEGORY_IMAGES || {};
+  (window.NORTHROOM_CATEGORIES || []).forEach(function (c) {
+    if (!c.image && imgs2[c.id]) c.image = imgs2[c.id];
+  });
 })();
