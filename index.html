@@ -519,12 +519,16 @@
       btn.disabled = true;
       note.hidden = false;
       note.textContent = "Opening checkout…";
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
         const res = await fetch(API, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ title: btn.dataset.title, price: Number(btn.dataset.price), quantity: 1, sku: btn.dataset.sku || btn.dataset.title })
+          body: JSON.stringify({ title: btn.dataset.title, price: Number(btn.dataset.price), quantity: 1, sku: btn.dataset.sku || btn.dataset.title }),
+          signal: controller.signal
         });
+        if (!res.ok) throw new Error("Checkout request failed");
         const data = await res.json();
         if (data.checkout_url && data.checkout_url.includes("checkout.stripe.com")) {
           window.location = data.checkout_url;
@@ -533,9 +537,13 @@
         }
         note.textContent = "Checkout isn’t ready for this item yet.";
       } catch (err) {
-        note.textContent = "Couldn’t reach checkout. Try once more.";
+        note.textContent = controller.signal.aborted
+          ? "Checkout is slow to wake — tap Buy again."
+          : "Couldn’t reach checkout. Try once more.";
+      } finally {
+        clearTimeout(timeoutId);
+        btn.disabled = false;
       }
-      btn.disabled = false;
     });
 
     const products = (window.NORTHROOM_PRODUCTS || []).map((p) => {
