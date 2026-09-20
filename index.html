@@ -571,18 +571,25 @@
       </a>`;
     }).join("");
 
-    const featuredTitles = [
-      "Waffle Cotton Throw",
-      "Matte Ceramic Lamp with Linen Shade",
-      "Acacia Serving Tray",
-      "Matte Ceramic Vase",
-      "Oversized Bath Towels (Set of 2)",
-      "Seagrass Storage Baskets (Set of 2)"
-    ];
-    const featured = featuredTitles
-      .map((t) => products.find((p) => p.title === t))
-      .filter(Boolean)
-      .slice(0, 6);
+    // Dynamic featured: prefer products with images, span categories
+    const withImg = products.filter((p) => p.image || (window.NORTHROOM_IMAGES || {})[p.title]);
+    const pool = withImg.length ? withImg : products.slice();
+    const featured = [];
+    const usedCats = {};
+    // first pass: one per category
+    for (const p of pool) {
+      if (featured.length >= 6) break;
+      const c = p.cat || "_";
+      if (usedCats[c]) continue;
+      usedCats[c] = 1;
+      featured.push(p);
+    }
+    // fill remaining up to 6
+    for (const p of pool) {
+      if (featured.length >= 6) break;
+      if (featured.includes(p)) continue;
+      featured.push(p);
+    }
     document.getElementById("featured-grid").innerHTML = featured.map(card).join("");
     document.getElementById("brand-merch").innerHTML = brand.map(card).join("");
   </script>
