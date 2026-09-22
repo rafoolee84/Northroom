@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Northroom — Category</title>
+  <title>Northroom — Shop by category</title>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:url" content="https://www.northroomhome.com/category.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Browse Northroom calm home essentials by category. US shipping and 30-day returns." />
+  <meta property="og:title" content="Northroom — Shop by category" />
   <meta name="description" content="Quiet home goods by category." />
   <link rel="preconnect" href="https://smart-store-service.onrender.com" />
   <style>
@@ -334,6 +340,50 @@
       text-decoration: none;
     }
 
+  
+    .filters {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      padding: 8px 6vw 4px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+    }
+    .filters input, .filters select {
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 9px 12px; background: var(--paper); color: var(--ink);
+      font: inherit;
+    }
+    .filters input { min-width: 180px; flex: 1 1 180px; }
+
+  
+    .newsletter {
+      margin: 8px 6vw 28px;
+      padding: 22px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,252,247,0.7);
+      max-width: 520px;
+    }
+    .newsletter h3 { margin: 0 0 6px; font-size: 17px; font-weight: 500; }
+    .newsletter p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .newsletter form { display: flex; flex-wrap: wrap; gap: 8px; }
+    .newsletter input[type=email] {
+      flex: 1 1 180px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .newsletter button {
+      appearance: none; border: 0; background: var(--btn); color: var(--cream);
+      padding: 10px 16px; border-radius: 999px; cursor: pointer;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; letter-spacing: 0.06em;
+    }
+    .newsletter .nl-msg { margin: 8px 0 0; font-size: 12px; color: var(--muted); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
   </style>
   <script src="tracking.js" data-ga-measurement-id="G-2XECBDCX75" defer></script>
   <noscript><img height="1" width="1" style="display:none;" alt="" src="https://ct.pinterest.com/v3/?event=init&amp;tid=2612944698029&amp;noscript=1" /></noscript>
@@ -369,7 +419,31 @@
     <p class="meta" id="cat-meta"></p>
   </section>
 
+  
+  <div class="filters" id="cat-filters" aria-label="Search and filter">
+    <input type="search" id="q" placeholder="Search in category…" aria-label="Search" />
+    <select id="f-price" aria-label="Price">
+      <option value="">Any price</option>
+      <option value="0-25">Under $25</option>
+      <option value="25-50">$25–$50</option>
+      <option value="50-75">$50–$75</option>
+      <option value="75-999">$75+</option>
+    </select>
+  </div>
+
   <section class="grid" id="catalog"></section>
+
+    
+  <section class="newsletter" id="newsletter" aria-label="Newsletter">
+    <h3>Quiet updates</h3>
+    <p>New arrivals and first-look notes. No spam.</p>
+    <form id="nl-form" action="#" method="post">
+      <input type="email" name="email" required placeholder="you@email.com" aria-label="Email" autocomplete="email" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="nl-msg" id="nl-msg" hidden></p>
+  </section>
+
 
     <footer>
     <div class="footer-grid">
@@ -398,7 +472,7 @@
       </div>
     </div>
         <p class="footer-biz">Northroom · <a href="mailto:albazirafal859@gmail.com">albazirafal859@gmail.com</a></p>
-    <p class="footer-trust"><a href="privacy.html">Secure checkout</a><span class="sep" aria-hidden="true">·</span><a href="shipping.html">Ships in the US</a><span class="sep" aria-hidden="true">·</span><a href="returns.html">30-day returns</a></p>
+    <p class="footer-trust"><span>Secure checkout (Stripe)</span><span class="sep" aria-hidden="true">·</span><a href="shipping.html">Ships in the US</a><span class="sep" aria-hidden="true">·</span><a href="returns.html">30-day returns</a></p>
   </footer>
 
   <script src="product-images.js"></script>
@@ -500,7 +574,52 @@
       document.getElementById("cat-title").textContent = cat;
       document.getElementById("cat-meta").textContent = items.length + " pieces";
       document.getElementById("catalog").innerHTML = items.map(card).join("");
+
+      let allItems = items.slice();
+      function priceOk(p, band) {
+        if (!band) return true;
+        const [a,b] = band.split("-").map(Number);
+        const price = Number(p.price);
+        return price >= a && price <= b;
+      }
+      function render() {
+        const q = (document.getElementById("q")?.value || "").trim().toLowerCase();
+        const band = document.getElementById("f-price")?.value || "";
+        const hits = allItems.filter((p) => {
+          if (!priceOk(p, band)) return false;
+          if (q) {
+            const hay = (p.title + " " + (p.blurb||"")).toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+          return true;
+        });
+        document.getElementById("cat-meta").textContent = hits.length + " pieces" + (hits.length !== allItems.length ? " (filtered)" : "");
+        document.getElementById("catalog").innerHTML = hits.length ? hits.map(card).join("") : '<p style="padding:12px 6vw;color:var(--muted);">No matches.</p>';
+      }
+      ["q","f-price"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener(id === "q" ? "input" : "change", render);
+      });
+
     }
   </script>
+<script>
+  (function(){
+    var f=document.getElementById("nl-form"); if(!f) return;
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var email=(f.email && f.email.value || "").trim();
+      if(!email) return;
+      try {
+        var list=JSON.parse(localStorage.getItem("nr_newsletter")||"[]");
+        if(list.indexOf(email)<0) list.push(email);
+        localStorage.setItem("nr_newsletter", JSON.stringify(list));
+      } catch(_){}
+      var m=document.getElementById("nl-msg");
+      if(m){ m.hidden=false; m.textContent="Thanks — you're on the list."; }
+      f.reset();
+    });
+  })();
+</script>
 </body>
 </html>
