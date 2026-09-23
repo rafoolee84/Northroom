@@ -643,7 +643,7 @@
           <h3><a href="${href}">${esc(p.title)}</a></h3>
           <p class="price">$${Number(p.price).toFixed(2)}</p>
           <p>${esc(p.blurb)}</p>
-          <button class="buy" data-title="${esc(p.title)}" data-price="${Number(p.price)}" data-sku="${esc(p.id || p.sku || p.title)}">Buy</button>
+          <button class="buy" data-title="${esc(p.title)}" data-price="${Number(p.price)}" data-sku="${esc(p.id || p.sku || p.title)}">Add</button>
           <p class="ship-hint">Usually 3–8 days (US stock) or 1–3 weeks (China).</p>
           <p class="note" hidden></p>
         </div>
@@ -663,39 +663,32 @@
       if (document.visibilityState === "visible") resetAllBuyUi();
     });
 
-    document.body.addEventListener("click", async (e) => {
+    document.body.addEventListener("click", (e) => {
       const btn = e.target.closest("button.buy");
       if (!btn || btn.disabled) return;
-      const note = btn.parentElement.querySelector(".note");
-      btn.disabled = true;
-      note.hidden = false;
-      note.textContent = "Opening checkout…";
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 25000);
+      e.preventDefault();
+      const note = btn.parentElement && btn.parentElement.querySelector(".note");
       try {
-        const res = await fetch(API, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ title: btn.dataset.title, price: Number(btn.dataset.price), quantity: 1, sku: btn.dataset.sku || btn.dataset.title }),
-          signal: controller.signal
-        });
-        if (!res.ok) throw new Error("Checkout request failed");
-        const data = await res.json();
-        if (data.checkout_url && data.checkout_url.includes("checkout.stripe.com")) {
-          window.location = data.checkout_url;
-          setTimeout(resetAllBuyUi, 2000);
-          return;
+        const cart = JSON.parse(localStorage.getItem("nr_cart") || "[]");
+        const title = btn.dataset.title || "Item";
+        const price = Number(btn.dataset.price || 0);
+        const sku = btn.dataset.sku || title;
+        const hit = cart.find((x) => x.sku === sku);
+        if (hit) hit.qty = (hit.qty || 1) + 1;
+        else cart.push({ sku, title, price, qty: 1 });
+        localStorage.setItem("nr_cart", JSON.stringify(cart));
+        if (note) {
+          note.hidden = false;
+          note.textContent = "Added — view cart";
         }
-        note.textContent = "Checkout isn’t ready for this item yet.";
-      } catch (err) {
-        note.textContent = controller.signal.aborted
-          ? "Checkout is slow to wake — tap Buy again."
-          : "Couldn’t reach checkout. Try once more.";
-      } finally {
-        clearTimeout(timeoutId);
-        btn.disabled = false;
+        btn.textContent = "Added";
+        setTimeout(() => { btn.textContent = "Add"; }, 900);
+        window.dispatchEvent(new Event("nr-cart-updated"));
+      } catch (_) {
+        if (note) { note.hidden = false; note.textContent = "Couldn’t add to cart."; }
       }
     });
+
 
     const products = (window.NORTHROOM_PRODUCTS || []).map((p) => {
       const img = (window.NORTHROOM_IMAGES || {})[p.title];
@@ -873,28 +866,15 @@
     var n=count();
     var a=document.getElementById("nr-cart-badge");
     if(!a){
-      a=document.createElement("a"); a.id="nr-cart-badge"; a.className="cart-badge"; a.href="#"; a.title="Mini cart";
+      a=document.createElement("a"); a.id="nr-cart-badge"; a.className="cart-badge"; a.href="cart.html"; a.title="Cart";
       var h=document.querySelector("header"); if(h) h.appendChild(a);
-      a.addEventListener("click", function(e){ e.preventDefault(); alert(n? ("Cart: "+n+" item(s). Checkout still uses Buy on each product."):"Cart is empty."); });
+      /* cart page via href */
     }
     a.textContent = "Cart "+n;
     a.style.display = "inline-flex";
   }
   renderBadge();
-  document.addEventListener("click", function(e){
-    var b=e.target.closest("button.buy");
-    if(!b) return;
-    try{
-      var cart=JSON.parse(localStorage.getItem("nr_cart")||"[]");
-      var title=b.dataset.title || (document.getElementById("title")&&document.getElementById("title").textContent) || "Item";
-      var price=Number(b.dataset.price || (document.getElementById("price")&&document.getElementById("price").textContent.replace(/[^0-9.]/g,"")) || 0);
-      var sku=b.dataset.sku || title;
-      var hit=cart.find(function(x){return x.sku===sku});
-      if(hit) hit.qty=(hit.qty||1)+1; else cart.push({sku:sku,title:title,price:price,qty:1});
-      localStorage.setItem("nr_cart", JSON.stringify(cart));
-      renderBadge();
-    }catch(_){}
-  }, true);
+  // cart add handled by Add button listener
 })();
 </script>
 
