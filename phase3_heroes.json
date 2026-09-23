@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-09-22",
+  "image_rule": "1 lifestyle + 3\u20135 angles, same crop; manufacturer product photos only",
+  "hero_count": 16,
+  "heroes": [
+    {
+      "sku": "T-001",
+      "title": "Washed cotton duvet cover set \u2014 khaki linen, twin",
+      "category": "Textile",
+      "price": 81,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "S-013",
+      "title": "Walnut tripod floor lamp \u2014 natural",
+      "category": "Lighting",
+      "price": 77.99,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "D-014",
+      "title": "Thin black metal wall mirror \u2014 arched",
+      "category": "Decor",
+      "price": 54,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "L-007",
+      "title": "Woven water hyacinth laundry hamper \u2014 tall oat",
+      "category": "Storage",
+      "price": 79.42,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "O-049",
+      "title": "Compact birch picnic bench",
+      "category": "Outdoor",
+      "price": 65,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "T-004",
+      "title": "Linen-blend Roman shade panel \u2014 sage green",
+      "category": "Textile",
+      "price": 78.99,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "S-016",
+      "title": "Matte black task lamp \u2014 black",
+      "category": "Lighting",
+      "price": 70.67,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "D-023",
+      "title": "Round mirror \u2014 thin brushed nickel rim",
+      "category": "Decor",
+      "price": 50,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "S-023",
+      "title": "Woven hyacinth rectangular trunk \u2014 natural",
+      "category": "Storage",
+      "price": 61.54,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "S-007",
+      "title": "Portable Bluetooth lantern speaker \u2014 light brown",
+      "category": "Outdoor",
+      "price": 55.57,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "T-014",
+      "title": "Linen-blend blackout curtain panel \u2014 dark taupe",
+      "category": "Textile",
+      "price": 68.99,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "S-012",
+      "title": "Matte stoneware up-down wall light \u2014 army green",
+      "category": "Lighting",
+      "price": 58.76,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "D-015",
+      "title": "Travertine-look pedestal stand \u2014 short",
+      "category": "Decor",
+      "price": 45,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "S-039",
+      "title": "Rattan lidded oval trunk \u2014 coffee table",
+      "category": "Storage",
+      "price": 52,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "O-039",
+      "title": "Shade sail rectangle \u2014 warm sand",
+      "category": "Outdoor",
+      "price": 55,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    },
+    {
+      "sku": "T-019",
+      "title": "Washered linen bedskirt \u2014 grey",
+      "category": "Textile",
+      "price": 59.84,
+      "margin_note": ">=40% target \u2014 confirm landed COGS"
+    }
+  ],
+  "bundle_count": 3,
+  "bundles": [
+    {
+      "id": "bundle-bed-calm",
+      "name": "Calm bed set",
+      "skus": [
+        "T-001",
+        "T-004",
+        "T-014"
+      ],
+      "note": "Duvet + sheets + sham pairing"
+    },
+    {
+      "id": "bundle-glow",
+      "name": "Soft glow corner",
+      "skus": [
+        "S-013",
+        "S-016",
+        "D-014"
+      ],
+      "note": "Lamp + accent object"
+    },
+    {
+      "id": "bundle-entry",
+      "name": "Quiet entry",
+      "skus": [
+        "L-007",
+        "S-023",
+        "O-049"
+      ],
+      "note": "Basket/shelf + doormat/outdoor accent"
+    }
+  ],
+  "demoted_from_featured": [
+    "L-005",
+    "L-009",
+    "L-015",
+    "O-017",
+    "O-025",
+    "S-020",
+    "S-022",
+    "S-030",
+    "S-042",
+    "S-045",
+    "S-049",
+    "L-002",
+    "L-017",
+    "L-018"
+  ]
+}
