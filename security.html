@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northroom — Secure checkout</title>
+  <meta name="description" content="How Northroom handles secure Stripe checkout, payments, and your order data." />
+  <meta property="og:title" content="Northroom — Secure checkout" />
+  <meta property="og:description" content="Payments run through Stripe. We do not store your full card number on our servers." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.northroomhome.com/security.html" />
+  <link rel="stylesheet" href="data:text/css," />
+  <style>
+    :root { --cream:#f4efe6; --paper:#fffcf7; --ink:#2a2724; --muted:#7a7268; --line:#e5ddd1; }
+    body{margin:0;font-family:Georgia,"Iowan Old Style","Times New Roman",serif;background:var(--cream);color:var(--ink);line-height:1.5}
+    a{color:inherit} header,footer{padding:20px 6vw;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;color:var(--muted)}
+    header{border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+    .brand{letter-spacing:.24em;font-weight:600;font-size:13px;color:var(--ink);text-decoration:none}
+    main{padding:48px 6vw 64px;max-width:720px}
+    h1{margin:0 0 12px;font-size:clamp(28px,5vw,40px);font-weight:500}
+    .lede{color:var(--muted);font-size:18px;margin:0 0 28px}
+    .card{background:rgba(255,252,247,.7);border:1px solid var(--line);border-radius:18px;padding:28px 26px}
+    h2{margin:28px 0 10px;font-size:20px;font-weight:500} h2:first-child{margin-top:0}
+    p,li{color:var(--muted);font-size:16px;max-width:38em} ul{padding-left:1.2em}
+    .back{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  </style>
+</head>
+<body>
+  <header><a class="brand" href="index.html">NORTHROOM</a><a class="back" href="index.html">Shop</a></header>
+  <main>
+    <a class="back" href="index.html">← Back to shop</a>
+    <h1>Secure checkout</h1>
+    <p class="lede">Payments are processed by Stripe. Card details stay with Stripe — not on Northroom servers.</p>
+    <article class="card">
+      <h2>What “secure checkout” means here</h2>
+      <ul>
+        <li>Checkout opens on <strong>checkout.stripe.com</strong> over HTTPS.</li>
+        <li>We receive order email, shipping address, and payment status from Stripe — not your full card number or CVC.</li>
+        <li>Promotion codes (like NORTH15) are applied inside Stripe Checkout when enabled.</li>
+        <li>For order help, email <a href="mailto:help@northroomhome.com">help@northroomhome.com</a>.</li>
+      </ul>
+      <h2>Related</h2>
+      <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="shipping.html">Shipping</a> · <a href="returns.html">Returns</a></p>
+    </article>
+  </main>
+  <footer>Northroom · United States</footer>
+</body>
+</html>
