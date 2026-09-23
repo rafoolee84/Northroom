@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northroom — Cart</title>
+  <meta name="description" content="Your Northroom cart. Review items, then checkout once." />
+  <style>
+    :root {
+      --cream: #f4efe6;
+      --ink: #2a2724;
+      --muted: #7a7268;
+      --line: #e5ddd1;
+      --btn: #2a2724;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 6vw;
+      border-bottom: 1px solid var(--line);
+      background: rgba(244,239,230,0.92);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.24em;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    nav {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+    }
+    nav a { color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 6vw 80px; }
+    h1 { font-size: 28px; font-weight: 500; margin: 0 0 8px; }
+    .sub { color: var(--muted); font-size: 14px; margin: 0 0 28px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .empty { padding: 32px 0; color: var(--muted); }
+    .line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .line h2 { margin: 0; font-size: 16px; font-weight: 500; }
+    .meta { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; color: var(--muted); }
+    .price { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; white-space: nowrap; }
+    .qty-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .qty-row button {
+      width: 28px; height: 28px; border: 1px solid var(--line); background: #fffdf8;
+      border-radius: 6px; cursor: pointer; font-size: 16px; line-height: 1;
+    }
+    .qty-row button:hover { border-color: var(--ink); }
+    .remove {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px; color: var(--muted); background: none; border: none;
+      cursor: pointer; padding: 0; text-decoration: underline;
+    }
+    .totals {
+      margin-top: 24px; padding-top: 16px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .totals strong { font-size: 18px; }
+    .actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .checkout {
+      appearance: none; border: 0; background: var(--btn); color: #f7f2ea;
+      padding: 14px 22px; border-radius: 999px; font-size: 14px; cursor: pointer;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing: 0.04em;
+    }
+    .checkout:disabled { opacity: 0.55; cursor: wait; }
+    .continue { font-size: 13px; color: var(--muted); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .note { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .hint { margin-top: 8px; font-size: 12px; color: var(--muted); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    footer {
+      border-top: 1px solid var(--line); padding: 28px 6vw; font-size: 13px; color: var(--muted);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html">NORTHROOM</a>
+    <nav>
+      <a href="index.html#shop">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Cart</h1>
+    <p class="sub">Add pieces across the shop, then pay once.</p>
+    <div id="lines"></div>
+    <div id="empty" class="empty" hidden>Your cart is empty. <a href="index.html#shop">Continue shopping</a>.</div>
+    <div id="foot" hidden>
+      <div class="totals"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <p class="hint">Shipping and tax calculated at Stripe checkout. Promo codes (including NORTH15) work there.</p>
+      <div class="actions">
+        <button type="button" class="checkout" id="checkout">Checkout</button>
+        <a class="continue" href="index.html#shop">Continue shopping</a>
+      </div>
+      <p class="note" id="note" hidden></p>
+    </div>
+  </main>
+  <footer>Questions? <a href="mailto:help@northroomhome.com">help@northroomhome.com</a></footer>
+  <script>
+  (function () {
+    const API_CART = "https://smart-store-service.onrender.com/approve_cart";
+    const WAKE = "https://smart-store-service.onrender.com/";
+    fetch(WAKE, { mode: "cors" }).catch(function () {});
+
+    function load() {
+      try { return JSON.parse(localStorage.getItem("nr_cart") || "[]") || []; }
+      catch (e) { return []; }
+    }
+    function save(cart) {
+      localStorage.setItem("nr_cart", JSON.stringify(cart));
+      window.dispatchEvent(new Event("nr-cart-updated"));
+    }
+    function money(n) { return "$" + Number(n).toFixed(2); }
+
+    function render() {
+      const cart = load();
+      const lines = document.getElementById("lines");
+      const empty = document.getElementById("empty");
+      const foot = document.getElementById("foot");
+      if (!cart.length) {
+        lines.innerHTML = "";
+        empty.hidden = false;
+        foot.hidden = true;
+        return;
+      }
+      empty.hidden = true;
+      foot.hidden = false;
+      let sub = 0;
+      lines.innerHTML = cart.map(function (item, i) {
+        const qty = item.qty || 1;
+        const line = qty * Number(item.price || 0);
+        sub += line;
+        return '<div class="line" data-i="' + i + '">' +
+          '<div><h2>' + esc(item.title) + '</h2>' +
+          '<div class="meta">' + money(item.price) + ' each</div>' +
+          '<div class="qty-row">' +
+          '<button type="button" data-act="dec" aria-label="Fewer">−</button>' +
+          '<span>' + qty + '</span>' +
+          '<button type="button" data-act="inc" aria-label="More">+</button>' +
+          '<button type="button" class="remove" data-act="rm">Remove</button>' +
+          '</div></div>' +
+          '<div class="price">' + money(line) + '</div></div>';
+      }).join("");
+      document.getElementById("subtotal").textContent = money(sub);
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    }
+
+    document.getElementById("lines").addEventListener("click", function (e) {
+      const btn = e.target.closest("[data-act]");
+      if (!btn) return;
+      const row = btn.closest(".line");
+      const i = Number(row && row.dataset.i);
+      const cart = load();
+      if (!cart[i]) return;
+      const act = btn.dataset.act;
+      if (act === "inc") cart[i].qty = (cart[i].qty || 1) + 1;
+      if (act === "dec") {
+        cart[i].qty = (cart[i].qty || 1) - 1;
+        if (cart[i].qty < 1) cart.splice(i, 1);
+      }
+      if (act === "rm") cart.splice(i, 1);
+      save(cart);
+      render();
+    });
+
+    document.getElementById("checkout").addEventListener("click", async function () {
+      const cart = load();
+      const note = document.getElementById("note");
+      const btn = document.getElementById("checkout");
+      if (!cart.length) return;
+      btn.disabled = true;
+      note.hidden = false;
+      note.textContent = "Opening checkout…";
+      const items = cart.map(function (x) {
+        return {
+          title: x.title,
+          price: Number(x.price),
+          quantity: Math.max(1, x.qty || 1),
+          sku: x.sku || x.title
+        };
+      });
+      const controller = new AbortController();
+      const t = setTimeout(function () { controller.abort(); }, 30000);
+      try {
+        const res = await fetch(API_CART, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items: items }),
+          signal: controller.signal
+        });
+        const data = await res.json().catch(function () { return {}; });
+        if (data.checkout_url && String(data.checkout_url).indexOf("checkout.stripe.com") >= 0) {
+          window.location = data.checkout_url;
+          return;
+        }
+        note.textContent = (data && data.error) ? data.error : "Checkout isn’t ready yet. Try again.";
+      } catch (err) {
+        note.textContent = controller.signal.aborted
+          ? "Checkout is slow to wake — tap Checkout again."
+          : "Couldn’t reach checkout. Try once more.";
+      } finally {
+        clearTimeout(t);
+        btn.disabled = false;
+      }
+    });
+
+    // Clear cart after successful return (?paid=1 on home — cart page may not see it)
+    render();
+  })();
+  </script>
+</body>
+</html>
