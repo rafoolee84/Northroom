@@ -1,6 +1,6 @@
 /* Extra Northroom SKUs + category photos. Load after products.js — catalog purged 2026-09-07 */
 window.NORTHROOM_EXTRA_PRODUCTS=[];
-window.NORTHROOM_CATEGORY_IMAGES={"Textile":"https://images.pexels.com/photos/10240394/pexels-photo-10240394.jpeg?auto=compress&cs=tinysrgb&w=800","Lighting":"https://images.pexels.com/photos/29909645/pexels-photo-29909645.jpeg?auto=compress&cs=tinysrgb&w=800","Kitchen":"https://images.unsplash.com/photo-1637181507563-3b94df291e2c?w=800&auto=format&fit=crop","Decor":"https://images.pexels.com/photos/32688518/pexels-photo-32688518.jpeg?auto=compress&cs=tinysrgb&w=800","Bath":"https://images.unsplash.com/photo-1724847885015-be191f1a47ef?w=800&auto=format&fit=crop","Storage":"https://images.pexels.com/photos/4112601/pexels-photo-4112601.jpeg?auto=compress&cs=tinysrgb&w=800","Outdoor":"https://images.pexels.com/photos/6585755/pexels-photo-6585755.jpeg?auto=compress&cs=tinysrgb&w=800"};
+window.NORTHROOM_CATEGORY_IMAGES={"Textile":"images/catalog/T-001_0.jpg","Lighting":"images/catalog/L-001_0.jpg","Kitchen":"images/catalog/S-003_0.jpg","Decor":"images/catalog/D-002_0.jpg","Bath":"images/catalog/S-003_0.jpg","Storage":"images/catalog/S-003_0.jpg","Outdoor":"images/catalog/O-001_0.jpg"};
 window.NORTHROOM_PRICE_OVERRIDES={};
 window.NORTHROOM_BRAND_PRICE_OVERRIDES={};
 (function(){
