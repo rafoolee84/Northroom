@@ -476,7 +476,8 @@
     let product = null;
     if (qTitle) {
       product = all.find((p) => p.title === qTitle)
-        || all.find((p) => p.title.toLowerCase() === qTitle.toLowerCase());
+        || all.find((p) => p.title.toLowerCase() === qTitle.toLowerCase())
+        || all.find((p) => Array.isArray(p.old_titles) && p.old_titles.includes(qTitle));
     }
     if (!product && qSlug) {
       product = all.find((p) => slugify(p.title) === qSlug);
