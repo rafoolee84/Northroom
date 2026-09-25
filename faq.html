@@ -360,9 +360,8 @@
     var n=count();
     var a=document.getElementById("nr-cart-badge");
     if(!a){
-      a=document.createElement("a"); a.id="nr-cart-badge"; a.className="cart-badge"; a.href="#"; a.title="Mini cart";
+      a=document.createElement("a"); a.id="nr-cart-badge"; a.className="cart-badge"; a.href="cart.html"; a.title="Cart";
       var h=document.querySelector("header"); if(h) h.appendChild(a);
-      a.addEventListener("click", function(e){ e.preventDefault(); alert(n? ("Cart: "+n+" item(s). Checkout still uses Buy on each product."):"Cart is empty."); });
     }
     a.textContent = "Cart "+n;
     a.style.display = "inline-flex";
@@ -385,5 +384,6 @@
 })();
 </script>
 
+<script src="cart-badge.js"></script>
 </body>
 </html>

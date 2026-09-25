@@ -603,7 +603,7 @@
           <p class="price">$${Number(p.price).toFixed(2)}</p>
           <p>${esc(p.blurb)}</p>
           <button class="buy" data-title="${esc(p.title)}" data-price="${Number(p.price)}" data-sku="${esc(p.id || p.sku || p.title)}">Add</button>
-          <p class="ship-hint">Usually 3–8 days (US stock) or 1–3 weeks (China).</p>
+          <p class="ship-hint">Delivery: usually ${esc(p.delivery || "1–3 weeks")}</p>
           <p class="note" hidden></p>
         </div>
       </article>`;
@@ -842,5 +842,6 @@
 })();
 </script>
 
+<script src="cart-badge.js"></script>
 </body>
 </html>

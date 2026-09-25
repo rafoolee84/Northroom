@@ -164,7 +164,7 @@
       <div class="ship-est">
         <strong style="color:var(--ink);font-weight:500">Shipping estimate</strong><br />
         <span id="ship-msg">Free US shipping on orders $50+. Under $50: $5.99 US standard.</span><br />
-        Usually 3–8 days if US stock; 1–3 weeks if China origin.
+        <span id="cart-delivery">Delivery times are listed on each product page.</span>
       </div>
       <p class="hint" id="promo-hint">Promo codes (including NORTH15) work at Stripe. They don’t apply to price-matched items.</p>
       <p class="note" id="cart-changes" hidden></p>
@@ -272,11 +272,25 @@
       document.getElementById("ship-msg").textContent = free
         ? "Your order ships free (US, orders $50+)."
         : "US standard $5.99. Add " + money(FREE_SHIP_MIN - sub) + " more for free shipping.";
+      (function(){
+        const order = ["3–8 days", "1–3 weeks", "2–4 weeks", "2–5 weeks"];
+        const cat = window.NORTHROOM_PRODUCTS || [];
+        let worst = -1;
+        cart.forEach(function (item) {
+          const p = cat.find(function (q) { return q.id === item.sku || q.title === item.title; });
+          const k = p ? order.indexOf(p.delivery) : -1;
+          if (k > worst) worst = k;
+        });
+        const el = document.getElementById("cart-delivery");
+        if (el && worst >= 0) el.textContent = "Delivery: usually " + order[worst] + " after your order ships.";
+      })();
       const anyPm = cart.some(function (x) { return x.priceMatched; });
       document.getElementById("promo-hint").textContent = anyPm
         ? "Your cart has price-matched items, so promo codes (including NORTH15) are off for this checkout. Check out other items separately to use NORTH15 on them."
         : "Promo codes (including NORTH15) work at Stripe. They don’t apply to price-matched items.";
     }
+
+    window.addEventListener("storage", function (e) { if (!e.key || e.key === "nr_cart") render(); });
 
     function esc(s) {
       return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
@@ -353,5 +367,6 @@
     render();
   })();
   </script>
+<script src="cart-badge.js"></script>
 </body>
 </html>
