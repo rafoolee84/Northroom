@@ -1,119 +1,103 @@
 {
   "generated_at": "2026-09-22",
-  "image_rule": "1 lifestyle + 3\u20135 angles, same crop; manufacturer product photos only",
+  "image_rule": "1 lifestyle + 3–5 angles, same crop; manufacturer product photos only",
   "hero_count": 16,
   "heroes": [
     {
       "sku": "T-001",
-      "title": "Washed cotton duvet cover set \u2014 khaki linen, twin",
+      "title": "Washed cotton duvet cover set — khaki linen, twin",
       "category": "Textile",
-      "price": 81,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 81
     },
     {
       "sku": "S-013",
-      "title": "Walnut tripod floor lamp \u2014 natural",
+      "title": "Walnut tripod floor lamp — natural",
       "category": "Lighting",
-      "price": 77.99,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 77.99
     },
     {
       "sku": "D-002",
-      "title": "Travertine-look catchall tray \u2014 rectangular",
+      "title": "Travertine-look catchall tray — rectangular",
       "category": "Decor",
-      "price": 22.0,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 22.0
     },
     {
       "sku": "L-007",
-      "title": "Woven water hyacinth laundry hamper \u2014 tall oat",
+      "title": "Woven water hyacinth laundry hamper — tall oat",
       "category": "Storage",
-      "price": 79.42,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 79.42
     },
     {
       "sku": "O-049",
       "title": "Compact birch picnic bench",
       "category": "Outdoor",
-      "price": 65,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 65
     },
     {
       "sku": "T-004",
-      "title": "Linen-blend Roman shade panel \u2014 sage green",
+      "title": "Linen-blend Roman shade panel — sage green",
       "category": "Textile",
-      "price": 78.99,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 78.99
     },
     {
       "sku": "S-016",
-      "title": "Matte black task lamp \u2014 black",
+      "title": "Matte black task lamp — black",
       "category": "Lighting",
-      "price": 70.67,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 70.67
     },
     {
       "sku": "D-023",
-      "title": "Round mirror \u2014 thin brushed nickel rim",
+      "title": "Round mirror — thin brushed nickel rim",
       "category": "Decor",
-      "price": 50,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 50
     },
     {
       "sku": "S-023",
-      "title": "Woven hyacinth rectangular trunk \u2014 natural",
+      "title": "Woven hyacinth rectangular trunk — natural",
       "category": "Storage",
-      "price": 61.54,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 61.54
     },
     {
       "sku": "O-001",
-      "title": "Rechargeable camping lantern \u2014 frosted dome",
+      "title": "Rechargeable camping lantern — frosted dome",
       "category": "Outdoor",
-      "price": 28.0,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 28.0
     },
     {
       "sku": "T-008",
-      "title": "Ribbed soft throw \u2014 milky white",
+      "title": "Ribbed soft throw — milky white",
       "category": "Textile",
-      "price": 26.99,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 26.99
     },
     {
       "sku": "L-019",
-      "title": "Paper rice-shade tripod lamp \u2014 ivory",
+      "title": "Paper rice-shade tripod lamp — ivory",
       "category": "Lighting",
-      "price": 42.0,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 42.0
     },
     {
       "sku": "D-015",
-      "title": "Travertine-look pedestal stand \u2014 short",
+      "title": "Travertine-look pedestal stand — short",
       "category": "Decor",
-      "price": 45,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 45
     },
     {
       "sku": "S-039",
-      "title": "Rattan lidded oval trunk \u2014 coffee table",
+      "title": "Rattan lidded oval trunk — coffee table",
       "category": "Storage",
-      "price": 52,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 52
     },
     {
       "sku": "O-039",
-      "title": "Shade sail rectangle \u2014 warm sand",
+      "title": "Shade sail rectangle — warm sand",
       "category": "Outdoor",
-      "price": 55,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 55
     },
     {
       "sku": "T-002",
-      "title": "Lightweight stonewashed linen sofa throw \u2014 natural",
+      "title": "Lightweight stonewashed linen sofa throw — natural",
       "category": "Textile",
-      "price": 39.25,
-      "margin_note": ">=40% target \u2014 confirm landed COGS"
+      "price": 39.25
     }
   ],
   "bundle_count": 3,
