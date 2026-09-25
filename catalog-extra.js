@@ -1,6 +1,6 @@
 /* Extra Northroom SKUs + category photos. Load after products.js — catalog purged 2026-09-07 */
 window.NORTHROOM_EXTRA_PRODUCTS=[];
-window.NORTHROOM_CATEGORY_IMAGES={"Textile":"images/catalog/T-001_0.jpg","Lighting":"images/catalog/L-001_0.jpg","Kitchen":"images/catalog/S-003_0.jpg","Decor":"images/catalog/D-002_0.jpg","Bath":"images/catalog/S-003_0.jpg","Storage":"images/catalog/S-003_0.jpg","Outdoor":"images/catalog/O-001_0.jpg"};
+window.NORTHROOM_CATEGORY_IMAGES={"Textile":"images/catalog/T-001_0.jpg?v=20260925","Lighting":"images/catalog/L-001_0.jpg","Kitchen":"images/catalog/S-003_0.jpg","Decor":"images/catalog/D-002_0.jpg","Bath":"images/catalog/S-003_0.jpg","Storage":"images/catalog/S-003_0.jpg","Outdoor":"images/catalog/O-001_0.jpg"};
 window.NORTHROOM_PRICE_OVERRIDES={};
 window.NORTHROOM_BRAND_PRICE_OVERRIDES={};
 (function(){
@@ -47,4 +47,4 @@ window.NORTHROOM_BRAND_PRICE_OVERRIDES={};
   });
 })();
 
-window.NORTHROOM_DEMOTED_SKUS=window.NORTHROOM_DEMOTED_SKUS||["L-005","L-009","L-015","O-017","O-025","S-020","S-022","S-030","S-042","S-045","S-049","L-002","L-017","L-018"];
+window.NORTHROOM_DEMOTED_SKUS=window.NORTHROOM_DEMOTED_SKUS||["L-005", "L-015", "O-017", "O-025", "S-030", "S-042", "S-045", "S-049", "L-002", "L-017", "L-018"];

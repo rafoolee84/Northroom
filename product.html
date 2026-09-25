@@ -362,7 +362,7 @@
       <a href="index.html#mark">Mark</a>
     </nav>
   </header>
-  <div class="promo-notice" role="status">First order: use code <strong>NORTH15</strong> for 15% off</div>
+  <div class="promo-notice" role="status">First order: use code <strong>NORTH15</strong> for 15% off (excludes price-matched items)</div>
 
   <a class="back" id="back-link" href="index.html#shop">← Back</a>
 
@@ -579,7 +579,7 @@
           if (typeof raw === "number" && raw > 0) {
             est.textContent = "Est. shipping $" + Number(raw).toFixed(2) + " — confirmed in Stripe before you pay.";
           } else {
-            est.textContent = "Shipping options shown in Stripe before you pay (from about $5.99 US).";
+            est.textContent = "Free US shipping on orders $50+. Under $50: $5.99 US standard.";
           }
         }
       })();
@@ -621,6 +621,13 @@
       document.getElementById("title").textContent = product.title;
       document.getElementById("brand-line").textContent = brandName;
       document.getElementById("price").textContent = "$" + Number(product.price).toFixed(2);
+      if (product.priceMatched) {
+        const pm = document.createElement("span");
+        pm.className = "price-matched";
+        pm.textContent = "Price matched — promo codes (incl. NORTH15) don’t apply";
+        pm.style.cssText = "display:block;font-size:13px;color:#5a534a;margin-top:4px;letter-spacing:0;";
+        document.getElementById("price").appendChild(pm);
+      }
       (function(){
         const el = document.getElementById("color-line");
         if (!el) return;

@@ -159,12 +159,15 @@
     <div id="empty" class="empty" hidden>Your cart is empty. <a href="index.html#shop">Continue shopping</a>.</div>
     <div id="foot" hidden>
       <div class="totals"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <div class="totals" id="ship-row"><span>Shipping (US)</span><strong id="ship-amt">—</strong></div>
+      <div class="totals"><span>Estimated total</span><strong id="est-total">$0.00</strong></div>
       <div class="ship-est">
         <strong style="color:var(--ink);font-weight:500">Shipping estimate</strong><br />
-        Usually 3–8 days if US stock; 1–3 weeks if China origin.<br />
-        Shipping is calculated at Stripe checkout.
+        <span id="ship-msg">Free US shipping on orders $50+. Under $50: $5.99 US standard.</span><br />
+        Usually 3–8 days if US stock; 1–3 weeks if China origin.
       </div>
-      <p class="hint">Promo codes (including NORTH15) work at Stripe.</p>
+      <p class="hint" id="promo-hint">Promo codes (including NORTH15) work at Stripe. They don’t apply to price-matched items.</p>
+      <p class="note" id="cart-changes" hidden></p>
       <div class="actions">
         <button type="button" class="checkout" id="checkout">Checkout</button>
         <a class="continue" href="index.html#shop">Continue shopping</a>
@@ -181,8 +184,12 @@
       <a href="contact.html">Contact</a>
     </p>
   </footer>
+  <script src="products.js"></script>
+  <script src="prices.js"></script>
   <script>
   (function () {
+    const FREE_SHIP_MIN = 50;      // keep in sync with backend approve_cart
+    const STD_SHIP = 5.99;
     const API_CART = "https://smart-store-service.onrender.com/approve_cart";
     const WAKE = "https://smart-store-service.onrender.com/";
     fetch(WAKE, { mode: "cors" }).catch(function () {});
@@ -196,6 +203,37 @@
       window.dispatchEvent(new Event("nr-cart-updated"));
     }
     function money(n) { return "$" + Number(n).toFixed(2); }
+
+    // Re-sync stored cart lines with the live catalog: current price, title,
+    // priceMatched flag; drop catalog SKUs that were unpublished.
+    function reconcile() {
+      const cat = window.NORTHROOM_PRODUCTS || [];
+      if (!cat.length) return;
+      const byId = {}, byTitle = {};
+      cat.forEach(function (p) { if (p.id) byId[p.id] = p; byTitle[p.title] = p; });
+      const cart = load();
+      const removed = [];
+      let changed = false;
+      const next = [];
+      cart.forEach(function (item) {
+        const p = byId[item.sku] || byTitle[item.title];
+        if (!p) {
+          if (/^[A-Z]-\d{3}$/.test(String(item.sku || ""))) { removed.push(item.title); changed = true; return; }
+          next.push(item); return;
+        }
+        const pm = !!p.priceMatched;
+        if (Number(item.price) !== Number(p.price) || item.title !== p.title || !!item.priceMatched !== pm || item.sku !== p.id) {
+          item.price = Number(p.price); item.title = p.title; item.sku = p.id; item.priceMatched = pm; changed = true;
+        }
+        next.push(item);
+      });
+      if (changed) save(next);
+      const el = document.getElementById("cart-changes");
+      if (el && removed.length) {
+        el.hidden = false;
+        el.textContent = "No longer available and removed from your cart: " + removed.join(", ") + ".";
+      }
+    }
 
     function render() {
       const cart = load();
@@ -217,7 +255,7 @@
         sub += line;
         return '<div class="line" data-i="' + i + '">' +
           '<div><h2>' + esc(item.title) + '</h2>' +
-          '<div class="meta">' + money(item.price) + ' each</div>' +
+          '<div class="meta">' + money(item.price) + ' each' + (item.priceMatched ? ' · Price matched (no promo codes)' : '') + '</div>' +
           '<div class="qty-row">' +
           '<button type="button" data-act="dec" aria-label="Fewer">−</button>' +
           '<span>' + qty + '</span>' +
@@ -227,6 +265,17 @@
           '<div class="price">' + money(line) + '</div></div>';
       }).join("");
       document.getElementById("subtotal").textContent = money(sub);
+      const free = sub >= FREE_SHIP_MIN;
+      const ship = free ? 0 : STD_SHIP;
+      document.getElementById("ship-amt").textContent = free ? "Free" : money(ship);
+      document.getElementById("est-total").textContent = money(sub + ship);
+      document.getElementById("ship-msg").textContent = free
+        ? "Your order ships free (US, orders $50+)."
+        : "US standard $5.99. Add " + money(FREE_SHIP_MIN - sub) + " more for free shipping.";
+      const anyPm = cart.some(function (x) { return x.priceMatched; });
+      document.getElementById("promo-hint").textContent = anyPm
+        ? "Your cart has price-matched items, so promo codes (including NORTH15) are off for this checkout. Check out other items separately to use NORTH15 on them."
+        : "Promo codes (including NORTH15) work at Stripe. They don’t apply to price-matched items.";
     }
 
     function esc(s) {
@@ -252,6 +301,8 @@
     });
 
     document.getElementById("checkout").addEventListener("click", async function () {
+      reconcile();
+      render();
       const cart = load();
       const note = document.getElementById("note");
       const btn = document.getElementById("checkout");
@@ -269,7 +320,8 @@
           title: x.title,
           price: Number(x.price),
           quantity: Math.max(1, x.qty || 1),
-          sku: x.sku || x.title
+          sku: x.sku || x.title,
+          price_matched: !!x.priceMatched
         };
       });
       const controller = new AbortController();
@@ -297,6 +349,7 @@
       }
     });
 
+    reconcile();
     render();
   })();
   </script>

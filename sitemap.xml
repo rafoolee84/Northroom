@@ -28,25 +28,37 @@
     <loc>https://www.northroomhome.com/category.html</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Stonewashed%20flax%20linen%20duvet%20cover%20%E2%80%94%20oat</loc>
+    <loc>https://www.northroomhome.com/category.html?cat=Textile</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Enzyme-washed%20linen%20curtain%20panel%20pair%20%E2%80%94%20natural</loc>
+    <loc>https://www.northroomhome.com/category.html?cat=Lighting</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Lightweight%20stonewashed%20linen%20sofa%20throw%20%E2%80%94%20flax</loc>
+    <loc>https://www.northroomhome.com/category.html?cat=Decor</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Everyday%20linen%20table%20runner%20with%20napkin%20set%20%E2%80%94%20cream</loc>
+    <loc>https://www.northroomhome.com/category.html?cat=Storage</loc>
+  </url>
+  <url>
+    <loc>https://www.northroomhome.com/category.html?cat=Outdoor</loc>
+  </url>
+  <url>
+    <loc>https://www.northroomhome.com/product.html?title=Washed%20cotton%20duvet%20cover%20set%20%E2%80%94%20khaki%20linen%2C%20twin</loc>
+  </url>
+  <url>
+    <loc>https://www.northroomhome.com/product.html?title=Lightweight%20stonewashed%20linen%20sofa%20throw%20%E2%80%94%20natural</loc>
+  </url>
+  <url>
+    <loc>https://www.northroomhome.com/product.html?title=Linen-blend%20Roman%20shade%20panel%20%E2%80%94%20sage%20green</loc>
+  </url>
+  <url>
+    <loc>https://www.northroomhome.com/product.html?title=Organic%20cotton%20herringbone%20throw%20%E2%80%94%20navy</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Cotton%20waffle%20euro%20sham%20covers%20%E2%80%94%20linen%20tone%2C%20pair</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Heavy%20cotton%20waffle%20bath%20towel%20set%20%E2%80%94%20warm%20white</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Chunky%20cotton%20knit%20throw%20%E2%80%94%20oatmeal</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Ribbed%20soft%20throw%20%E2%80%94%20milky%20white</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Boucl%C3%A9%20accent%20cushion%20cover%20%E2%80%94%20ivory</loc>
@@ -55,22 +67,7 @@
     <loc>https://www.northroomhome.com/product.html?title=Four-layer%20cotton%20gauze%20blanket%20%E2%80%94%20soft%20stone</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Hand-quilted%20cotton%20coverlet%20%E2%80%94%20natural%20ecru</loc>
-  </url>
-  <url>
     <loc>https://www.northroomhome.com/product.html?title=Stonewashed%20cotton%20percale%20sheet%20set%20%E2%80%94%20warm%20grey</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Linen-blend%20Roman%20shade%20panel%20%E2%80%94%20soft%20sage</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Organic%20cotton%20herringbone%20throw%20%E2%80%94%20charcoal%20edge</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Washed%20cotton%20matelass%C3%A9%20sham%20pair%20%E2%80%94%20bone</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Heavyweight%20linen%20apron%20%E2%80%94%20natural%20flax</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Cotton%20velvet%20lumbar%20cover%20%E2%80%94%20matte%20clay</loc>
@@ -79,16 +76,10 @@
     <loc>https://www.northroomhome.com/product.html?title=Stonewashed%20linen%20pillowcase%20pair%20%E2%80%94%20eucalyptus%20green</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Bamboo-cotton%20bath%20sheet%20duo%20%E2%80%94%20cloud</loc>
-  </url>
-  <url>
     <loc>https://www.northroomhome.com/product.html?title=Reversible%20washed%20cotton%20duvet%20shell%20%E2%80%94%20stripe%20reverse</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Seersucker%20cotton%20sham%20set%20%E2%80%94%20soft%20stripe</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Merino-blend%20lightweight%20throw%20%E2%80%94%20mushroom</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Linen%20tea%20towel%20trio%20%E2%80%94%20tonal%20neutrals</loc>
@@ -190,58 +181,28 @@
     <loc>https://www.northroomhome.com/product.html?title=Walnut%20catchall%20tray%20set%20%E2%80%94%20desk%20%26%20entry</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Canvas%20closet%20hanging%20shelves%20%E2%80%94%20stone</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Matte%20black%20wire%20basket%20pair%20%E2%80%94%20open%20grid</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Clear%20acrylic%20drawer%20bin%20assortment%20%E2%80%94%20low%20profile</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Outdoor%20throw%20%E2%80%94%20dark%20gray</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Rattan%20wall%20pocket%20baskets%20%E2%80%94%20pair</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Underbed%20low-profile%20canvas%20storage%20%E2%80%94%20zip%20pair</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Ceramic%20lidded%20canister%20set%20%E2%80%94%20matte%20stoneware</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Linen-covered%20storage%20box%20set%20%E2%80%94%20bone%20with%20lids</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Walnut%20tripod%20floor%20lamp%20%E2%80%94%20natural</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Oak%20modular%20desk%20organizer%20%E2%80%94%20compartment%20set</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Stackable%20fabric%20cube%20bins%20%E2%80%94%20beige%20clear-window%20trio</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Stoneware%20utensil%20crock%20%E2%80%94%20speckled%20cream</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Magazine%20rattan%20file%20stand%20%E2%80%94%20upright</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Matte%20black%20task%20lamp%20%E2%80%94%20black</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Bamboo%20bathroom%20tray%20with%20handles%20%E2%80%94%20bath%20caddy</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Cotton%20rope%20nested%20bowls%20%E2%80%94%20three%20sizes</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Woven%20hyacinth%20rectangular%20trunk%20%E2%80%94%20natural</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Wall%20peg%20rail%20with%20mini%20baskets%20%E2%80%94%20oak</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Folding%20laundry%20sorter%20cart%20%E2%80%94%20canvas%20stone</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Velvet%20jewelry%20tray%20stack%20%E2%80%94%20charcoal%20inset</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Stackable%20pantry%20bins%20%E2%80%94%20frosted%20slim</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Woven%20hyacinth%20rectangular%20trunk%20%E2%80%94%20lid</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Washed%20cotton%20quilted%20coverlet%20%E2%80%94%20beige%20diamond</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Felt-and-wood%20desk%20tray%20set%20%E2%80%94%20modular</loc>
@@ -304,7 +265,7 @@
     <loc>https://www.northroomhome.com/product.html?title=Stainless%20matte%20utensil%20drawer%20insert%20%E2%80%94%20expandable</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Linen-covered%20hat%20box%20pair%20%E2%80%94%20ivory%20stack</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Collapsible%20fabric%20storage%20cubes%20%E2%80%94%20beige%20set%20of%206</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Bamboo%20bathroom%20canister%20set%20%E2%80%94%20three</loc>
@@ -319,40 +280,28 @@
     <loc>https://www.northroomhome.com/product.html?title=Cotton%20rope%20laundry%20tote%20%E2%80%94%20tall%20stone</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Matte%20ceramic%20table%20lamp%20%E2%80%94%20bone%20dome%20shade</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Mushroom%20wood%20table%20lamp%20%E2%80%94%20beach</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Hand-formed%20ceramic%20wall%20sconce%20%E2%80%94%20matte%20white%20curve</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Wood-and-linen%20pendant%20%E2%80%94%20oak%20disc</loc>
-  </url>
-  <url>
     <loc>https://www.northroomhome.com/product.html?title=Cordless%20rechargeable%20lantern%20lamp%20%E2%80%94%20frosted%20glass</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Candle%20warmer%20lamp%20%E2%80%94%20ceramic%20mushroom%20base</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Collapsible%20silicone%20camp%20lantern%20%E2%80%94%20gold</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Matte%20black%20metal%20floor%20lamp%20%E2%80%94%20slim%20arc</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Bamboo%20picnic%20flatware%20set%20%E2%80%94%20canvas%20roll</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Ribbed%20ceramic%20bedside%20lamp%20%E2%80%94%20sand%20glaze</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Insulated%20bottle%20sling%20%E2%80%94%20purple</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Paper-shade%20pendant%20trio%20%E2%80%94%20warm%20ivory</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Hanging%20mesh%20food%20cover%20%E2%80%94%20natural%20dome</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Alabaster-look%20cylinder%20wall%20sconce%20%E2%80%94%20pair</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Walnut%20stem%20desk%20lamp%20%E2%80%94%20linen%20shade</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Glass%20hurricane%20LED%20candle%20set%20%E2%80%94%20frosted%20trio</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Rattan%20flush-mount%20ceiling%20light%20%E2%80%94%20dome</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Soft%20canvas%20camp%20stool%20%E2%80%94%20khaki</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Matte%20stoneware%20up-down%20wall%20light%20%E2%80%94%20bisque</loc>
@@ -433,9 +382,6 @@
     <loc>https://www.northroomhome.com/product.html?title=Hand-thrown%20ceramic%20bowl%20%E2%80%94%20wide%20shallow%20oat</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Thin%20black%20metal%20wall%20mirror%20%E2%80%94%20arched</loc>
-  </url>
-  <url>
     <loc>https://www.northroomhome.com/product.html?title=Travertine-look%20pedestal%20stand%20%E2%80%94%20short</loc>
   </url>
   <url>
@@ -469,7 +415,7 @@
     <loc>https://www.northroomhome.com/product.html?title=Ceramic%20bud%20vase%20trio%20%E2%80%94%20tonal%20sand</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Rechargeable%20soft-glow%20camp%20lantern%20%E2%80%94%20frosted%20cylinder</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Rechargeable%20camping%20lantern%20%E2%80%94%20frosted%20dome</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Packable%20ground%20picnic%20mat%20%E2%80%94%20oat%20canvas</loc>
@@ -484,16 +430,10 @@
     <loc>https://www.northroomhome.com/product.html?title=Cotton%20picnic%20blanket%20%E2%80%94%20sand%20with%20leather%20carry</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Collapsible%20silicone%20camp%20lantern%20%E2%80%94%20woodgrain</loc>
-  </url>
-  <url>
     <loc>https://www.northroomhome.com/product.html?title=Waterproof%20picnic%20tote%20mat%20%E2%80%94%20convertible%20stone</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Low-profile%20outdoor%20floor%20cushion%20%E2%80%94%20olive%20linen%20look</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Bamboo%20picnic%20flatware%20set%20%E2%80%94%20canvas%20roll</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Soft-sided%20wine%20cooler%20tote%20%E2%80%94%20greige</loc>
@@ -502,13 +442,7 @@
     <loc>https://www.northroomhome.com/product.html?title=Portable%20fire-safe%20ground%20mat%20%E2%80%94%20charcoal%20felt</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/product.html?title=Hanging%20mesh%20food%20cover%20%E2%80%94%20natural%20dome</loc>
-  </url>
-  <url>
     <loc>https://www.northroomhome.com/product.html?title=Folding%20side%20table%20%E2%80%94%20teak%20look%20compact</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Insulated%20bottle%20sling%20%E2%80%94%20oat%20canvas</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Outdoor%20throw%20blanket%20%E2%80%94%20washed%20cotton%20stone</loc>
@@ -545,9 +479,6 @@
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Packable%20linen%20picnic%20cloth%20%E2%80%94%20sand%20large</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/product.html?title=Soft%20canvas%20camp%20stool%20%E2%80%94%20oat%20seat</loc>
   </url>
   <url>
     <loc>https://www.northroomhome.com/product.html?title=Insulated%20stone%20cooler%20tote%20%E2%80%94%20rectangular</loc>
@@ -616,18 +547,6 @@
     <loc>https://www.northroomhome.com/product.html?title=Soft-glow%20solar%20table%20lamp%20%E2%80%94%20ceramic%20look%20bone</loc>
   </url>
   <url>
-    <loc>https://www.northroomhome.com/category.html?cat=Textile</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/category.html?cat=Lighting</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/category.html?cat=Decor</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/category.html?cat=Storage</loc>
-  </url>
-  <url>
-    <loc>https://www.northroomhome.com/category.html?cat=Outdoor</loc>
+    <loc>https://www.northroomhome.com/product.html?title=Everyday%20linen%20table%20runner%20with%20napkin%20set%20%E2%80%94%20light%20brown</loc>
   </url>
 </urlset>
