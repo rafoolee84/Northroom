@@ -18,10 +18,10 @@
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
-      "sku": "D-014",
-      "title": "Thin black metal wall mirror \u2014 arched",
+      "sku": "D-002",
+      "title": "Travertine-look catchall tray \u2014 rectangular",
       "category": "Decor",
-      "price": 54,
+      "price": 22.0,
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
@@ -67,24 +67,24 @@
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
-      "sku": "S-007",
-      "title": "Portable Bluetooth lantern speaker \u2014 light brown",
+      "sku": "O-001",
+      "title": "Rechargeable camping lantern \u2014 frosted dome",
       "category": "Outdoor",
-      "price": 55.57,
+      "price": 28.0,
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
-      "sku": "T-014",
-      "title": "Linen-blend blackout curtain panel \u2014 dark taupe",
+      "sku": "T-008",
+      "title": "Ribbed soft throw \u2014 milky white",
       "category": "Textile",
-      "price": 68.99,
+      "price": 26.99,
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
-      "sku": "S-012",
-      "title": "Matte stoneware up-down wall light \u2014 army green",
+      "sku": "L-019",
+      "title": "Paper rice-shade floor lantern \u2014 tall ivory",
       "category": "Lighting",
-      "price": 58.76,
+      "price": 42.0,
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
@@ -109,10 +109,10 @@
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     },
     {
-      "sku": "T-019",
-      "title": "Washered linen bedskirt \u2014 grey",
+      "sku": "T-002",
+      "title": "Lightweight stonewashed linen sofa throw \u2014 natural",
       "category": "Textile",
-      "price": 59.84,
+      "price": 39.25,
       "margin_note": ">=40% target \u2014 confirm landed COGS"
     }
   ],
@@ -124,7 +124,7 @@
       "skus": [
         "T-001",
         "T-004",
-        "T-014"
+        "T-008"
       ],
       "note": "Duvet + sheets + sham pairing"
     },
@@ -134,7 +134,7 @@
       "skus": [
         "S-013",
         "S-016",
-        "D-014"
+        "D-002"
       ],
       "note": "Lamp + accent object"
     },
@@ -151,12 +151,9 @@
   ],
   "demoted_from_featured": [
     "L-005",
-    "L-009",
     "L-015",
     "O-017",
     "O-025",
-    "S-020",
-    "S-022",
     "S-030",
     "S-042",
     "S-045",
@@ -164,5 +161,31 @@
     "L-002",
     "L-017",
     "L-018"
+  ],
+  "unpublished_2026_09_25": [
+    "D-014",
+    "L-003",
+    "L-009",
+    "O-007",
+    "O-015",
+    "O-028",
+    "S-007",
+    "S-008",
+    "S-011",
+    "S-012",
+    "S-015",
+    "S-017",
+    "S-019",
+    "S-020",
+    "S-021",
+    "S-022",
+    "T-007",
+    "T-011",
+    "T-013",
+    "T-014",
+    "T-015",
+    "T-016",
+    "T-019",
+    "T-022"
   ]
 }
