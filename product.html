@@ -443,7 +443,7 @@
   <script>
     const API = "https://smart-store-service.onrender.com/approve_product";
     const WAKE = "https://smart-store-service.onrender.com/";
-    const SHIP = "Delivery: usually 1–3 weeks.";
+    const SHIP = "Processed in 1–3 business days, then usually about 1–3 weeks from our overseas warehouse.";
 
     const esc = (s) => String(s)
       .replace(/&/g, "&amp;")
@@ -556,7 +556,7 @@
         const timing = document.getElementById("ship-timing");
         const est = document.getElementById("ship-estimate");
         const d = String(product.delivery || "").trim();
-        if (timing) timing.textContent = d ? ("Delivery: usually " + d + " after your order ships.") : SHIP;
+        if (timing) timing.textContent = d ? ("Processed in 1–3 business days, then usually about " + d + " from our " + (/day/.test(d) ? "US" : "overseas") + " warehouse.") : SHIP;
         if (est) est.textContent = "Free US shipping on orders $50+. Under $50: $5.99 US standard.";
       })();
 
